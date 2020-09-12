@@ -1,16 +1,27 @@
 import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
 import LoginForm from './components/LoginForm';
 import UnAuthenticatedLayout from './../../layouts/unAuthenticatedLayout';
+import { login } from './login.thunks';
+import { useHistory } from 'react-router-dom';
+import { PATH } from './../../constants/paths';
 
 const Login = (props) => {
+  const { login,loading } = props;
+  const history = useHistory()
   useEffect(() => {
+    console.log(props)
     if (localStorage.getItem('jwt') !== null) {
-      window.location.href = '/';
+      history.push(PATH.HOME)
     }
-  }, []);
+  }, [loading, history, props]);
 
-  const handleLogin = async (user) => {
-    console.log(user);
+  const handleLogin = async (payload) => {
+    login(payload).then(() => {
+      history.push(PATH.HOME)
+    }).catch((err) => {
+      console.log('Login failed',err)
+    })
   };
   return (
     <UnAuthenticatedLayout>
@@ -50,4 +61,12 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => ({
+  loading: state.login.loading,
+});
+
+const mapDispatchToProps = {
+  login,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

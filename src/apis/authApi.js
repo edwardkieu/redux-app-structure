@@ -6,7 +6,7 @@ const authApi = {
     return axiosClient.post(url, params);
   },
   getCurrentUser: () => {
-    const url = '/users/current';
+    const url = '/auth/current';
     return axiosClient.get(url);
   },
 };

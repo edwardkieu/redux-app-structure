@@ -15,22 +15,23 @@ function LoginForm(props) {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // if (!onLogin || formLoading) return;
-    // setFormLoading(true);
-    // var user = {
-    //   email: 'kieuminhhien@gmail.com',
-    //   password: 'Abcd1234',
-    // };
-    // onLogin(user);
-    // setTimeout(() => {
-    //   setFormLoading(false);
-    // }, 5000);
+    if (!onLogin || formLoading) return;
+    setFormLoading(true);
+    var user = {
+      email: 'kieuminhhien@gmail.com',
+      password: 'Abcd1234',
+    };
+    onLogin(user);
+    setTimeout(() => {
+      setFormLoading(false);
+    }, 100);
   };
   return (
     <form className="user" onSubmit={handleLogin}>
       <div className="form-group">
         <input
           type="email"
+          autoComplete='off'
           className="form-control form-control-user"
           id="exampleInputEmail"
           aria-describedby="emailHelp"
@@ -40,6 +41,7 @@ function LoginForm(props) {
       <div className="form-group">
         <input
           type="password"
+          autoComplete='new-password'
           className="form-control form-control-user"
           id="exampleInputPassword"
           placeholder="Password"
@@ -57,9 +59,9 @@ function LoginForm(props) {
           </label>
         </div>
       </div>
-      <a href="index.html" className="btn btn-primary btn-user btn-block">
+      <button type="submit" className="btn btn-primary btn-user btn-block">
         Login
-      </a>
+      </button>
       <hr />
       <a href="index.html" className="btn btn-google btn-user btn-block">
         <i className="fab fa-google fa-fw" /> Login with Google
