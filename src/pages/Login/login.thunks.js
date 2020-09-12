@@ -12,8 +12,8 @@ export const login = (payload) => async (dispatch) => {
         ...res,
         user: {
           id: user.id,
-          fullName: user.fullName,
-          email: user.email,
+          fullName: user.fullName || 'Edward',
+          email: user.email || 'kieuminhhien@gmail.com',
           avatar: user.imageProfile,
           roles: user.roles, // ['GUEST', 'USER', 'ADMIN']
         },

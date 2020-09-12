@@ -7,21 +7,22 @@ import { useHistory } from 'react-router-dom';
 import { PATH } from './../../constants/paths';
 
 const Login = (props) => {
-  const { login,loading } = props;
-  const history = useHistory()
+  const { login, loading } = props;
+  const history = useHistory();
   useEffect(() => {
-    console.log(props)
     if (localStorage.getItem('jwt') !== null) {
-      history.push(PATH.HOME)
+      history.push(PATH.HOME);
     }
   }, [loading, history, props]);
 
   const handleLogin = async (payload) => {
-    login(payload).then(() => {
-      history.push(PATH.HOME)
-    }).catch((err) => {
-      console.log('Login failed',err)
-    })
+    login(payload)
+      .then(() => {
+        history.push(PATH.HOME);
+      })
+      .catch((err) => {
+        console.log('Login failed', err);
+      });
   };
   return (
     <UnAuthenticatedLayout>

@@ -1,0 +1,11 @@
+.text-input {
+  padding: 20px 10px;
+  font-size: 13px;
+}
+.input-error {
+  border-color: #a94442;
+}
+.input-feedback {
+  color: #a94442;
+  font-size: 13px;
+}
