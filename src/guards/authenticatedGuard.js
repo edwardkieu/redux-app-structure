@@ -8,8 +8,8 @@ function AuthenticatedGuard(props) {
     <Route
       {...rest}
       render={(props) => {
-        if (!isAuthenticated && !localStorage.getItem('token')) {
-          return <Redirect to="/login" />;
+        if (!isAuthenticated && !localStorage.getItem('jwt')) {
+          return <Redirect to="/auth/login" />;
         }
         return <Component {...props} />;
       }}

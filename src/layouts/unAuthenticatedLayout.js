@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 
 function UnAuthenticatedLayout(props) {
   const { children } = props;
-  if (localStorage.getItem('token')) {
+
+  useEffect(() => {
+    document.body.classList.add('bg-gradient-primary');
+    return () => {
+      document.body.classList.remove('bg-gradient-primary');
+    };
+  }, []);
+
+  if (localStorage.getItem('jwt')) {
     return <Redirect to="/" />;
   }
   return <>{children}</>;
