@@ -1,5 +1,5 @@
 import * as types from './app.constants';
-import { LOGIN_SUCCESS } from './../pages/Login/login.constants'
+import { LOGIN_SUCCESS } from './../pages/Login/login.constants';
 const initialState = {
   isAuthenticated: false,
   user: {
@@ -13,11 +13,12 @@ const initialState = {
 
 const appReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.LOGOUT: {
+    case types.SIGN_OUT: {
       localStorage.removeItem('jwt');
       return { ...state, isAuthenticated: false };
     }
-    case LOGIN_SUCCESS: {
+    case LOGIN_SUCCESS:
+    case types.GET_CURRENT_USER: {
       return { ...state, isAuthenticated: true, user: action.payload.user };
     }
     default: {

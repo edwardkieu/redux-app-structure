@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 export default class LeftNav extends Component {
   render() {
@@ -7,9 +8,9 @@ export default class LeftNav extends Component {
         className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
         id="accordionSidebar"
       >
-        <a
+        <Link
           className="sidebar-brand d-flex align-items-center justify-content-center"
-          href="/"
+          to="/"
         >
           <div className="sidebar-brand-icon rotate-n-15">
             <i className="fas fa-laugh-wink" />
@@ -17,20 +18,20 @@ export default class LeftNav extends Component {
           <div className="sidebar-brand-text mx-3">
             Edward <sup>Kieu</sup>
           </div>
-        </a>
+        </Link>
         <hr className="sidebar-divider my-0" />
         <li className="nav-item">
-          <a className="nav-link" href="/">
+          <Link className="nav-link" to="/">
             <i className="fas fa-fw fa-tachometer-alt" />
             <span>Dashboard</span>
-          </a>
+          </Link>
         </li>
         <hr className="sidebar-divider" />
-        <div className="sidebar-heading">Group Name</div>
+        <div className="sidebar-heading">Systems</div>
         <li className="nav-item active">
-          <a
+          <Link
             className="nav-link"
-            href="/"
+            to="/"
             data-toggle="collapse"
             data-target="#collapsePages"
             aria-expanded="true"
@@ -38,7 +39,7 @@ export default class LeftNav extends Component {
           >
             <i className="fas fa-fw fa-folder" />
             <span>Pages</span>
-          </a>
+          </Link>
           <div
             id="collapsePages"
             className="collapse show"
@@ -46,7 +47,7 @@ export default class LeftNav extends Component {
             data-parent="#accordionSidebar"
           >
             <div className="bg-white py-2 collapse-inner rounded">
-              <h6 className="collapse-header">Screens:</h6>
+              <h6 className="collapse-header">Accounts Management:</h6>
               <a className="collapse-item" href="/">
                 Users
               </a>

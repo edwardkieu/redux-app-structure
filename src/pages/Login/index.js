@@ -16,13 +16,9 @@ const Login = (props) => {
   }, [loading, history, props]);
 
   const handleLogin = async (payload) => {
-    login(payload)
-      .then(() => {
-        history.push(PATH.HOME);
-      })
-      .catch((err) => {
-        console.log('Login failed', err);
-      });
+    login(payload).then(() => {
+      history.push(PATH.HOME);
+    });
   };
   return (
     <UnAuthenticatedLayout>

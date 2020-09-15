@@ -15,14 +15,13 @@ LoginForm.defaultProps = {
 function LoginForm(props) {
   const { onLogin } = props;
   const handleLogin = (user) => {
-    console.log(user);
     onLogin(user);
   };
   return (
     <Formik
       initialValues={{ email: '', password: '' }}
       onSubmit={async (values) => {
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        //await new Promise((resolve) => setTimeout(resolve, 1000));
         handleLogin(values);
       }}
       validationSchema={Yup.object().shape({
@@ -92,9 +91,7 @@ function LoginForm(props) {
                   className="custom-control-input"
                   defaultChecked="true"
                 />
-                <label className="custom-control-label" htmlFor="customCheck">
-                  Remember Me
-                </label>
+                <label className="custom-control-label">Remember Me</label>
               </div>
             </div>
             {/* <button
@@ -110,7 +107,7 @@ function LoginForm(props) {
               className="btn btn-primary btn-user btn-block"
               disabled={isSubmitting}
             >
-              Login
+              {isSubmitting ? `Submiting...` : `Login`}
             </button>
             <hr />
             <button className="btn btn-google btn-user btn-block">
