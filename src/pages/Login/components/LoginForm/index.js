@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Formik } from 'formik';
+import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import './loginForm.css';
 
@@ -45,7 +45,7 @@ function LoginForm(props) {
           handleSubmit,
         } = props;
         return (
-          <form className="user" onSubmit={handleSubmit}>
+          <Form className="user" onSubmit={handleSubmit}>
             <div className="form-group">
               <input
                 type="email"
@@ -88,6 +88,7 @@ function LoginForm(props) {
               <div className="custom-control custom-checkbox small">
                 <input
                   type="checkbox"
+                  name="remeberMe"
                   className="custom-control-input"
                   defaultChecked="true"
                 />
@@ -116,7 +117,7 @@ function LoginForm(props) {
             <button className="btn btn-facebook btn-user btn-block">
               <i className="fab fa-facebook-f fa-fw" /> Login with Facebook
             </button>
-          </form>
+          </Form>
         );
       }}
     </Formik>

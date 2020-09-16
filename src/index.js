@@ -1,18 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import * as serviceWorker from './serviceWorker';
-import { ToastProvider } from 'react-toast-notifications';
 import { Provider } from 'react-redux';
 import store from './store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ToastProvider autoDismiss={true} autoDismissTimeout={2000}>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </ToastProvider>
+    <Provider store={store}>
+      <App />
+      <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+        {/* Same as */}
+        <ToastContainer />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
