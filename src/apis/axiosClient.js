@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 import queryString from 'query-string';
 
 // Set up default config for http requests here
@@ -32,13 +32,13 @@ axiosClient.interceptors.response.use(
     return response;
   },
   (error) => {
-    const { status, data, headers } = error.response;
+    const { status, data } = error.response;
     // Handle errors
-    if (error.message === "Network Error" && !error.response) {
+    if (error.message === 'Network Error' && !error.response) {
       //alert("Network error - make sure API is running!");
-      toast.error("Network error - make sure API is running!");
+      toast.error('Network error - make sure API is running!');
     }
-    if (status === 404) {
+    if (status === 404 || status === 400) {
       try {
         if (!data.success) {
           toast.error(data.message || data.errors);

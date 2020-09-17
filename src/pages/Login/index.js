@@ -37,12 +37,12 @@ const Login = (props) => {
                       <LoginForm onLogin={handleLogin} />
                       <hr />
                       <div className="text-center">
-                        <a className="small" href="/">
+                        <a className="small" href="/auth/login">
                           Forgot Password?
                         </a>
                       </div>
                       <div className="text-center">
-                        <a className="small" href="register.html">
+                        <a className="small" href="/auth/login">
                           Create an Account!
                         </a>
                       </div>
