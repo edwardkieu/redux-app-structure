@@ -4,21 +4,26 @@ import * as actions from './login.actions';
 export const login = (payload) => async (dispatch) => {
   dispatch(actions.loginRequested());
   try {
-    let res = await authApi.signIn(payload);
-    localStorage.setItem('jwt', res.token);
-    let user = await authApi.getCurrentUser();
-    return dispatch(
-      actions.loginSuccess({
-        ...res,
-        user: {
-          id: user.id,
-          fullName: user.fullName || 'Edward',
-          email: user.email || 'kieuminhhien@gmail.com',
-          avatar: user.imageProfile,
-          roles: user.roles, // ['GUEST', 'USER', 'ADMIN']
-        },
-      })
-    );
+    let res = await authApi.login(payload);
+    const { success, message, token } = res;
+    if (success || token) {
+      localStorage.setItem('jwt', res.token);
+      let user = await authApi.getCurrentUserInfo();
+      let item = { user };
+      return dispatch(
+        actions.loginSuccess({
+          ...res,
+          user: {
+            id: item.id,
+            username: item.username || 'admin',
+            photoUrl: item.photoUrl || '',
+            roles: item.roles, // ['GUEST', 'USER', 'ADMIN']
+          },
+        })
+      );
+    } else {
+      return dispatch(actions.loginFailed(message));
+    }
   } catch (err) {
     return dispatch(actions.loginFailed(err));
   }

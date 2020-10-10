@@ -5,14 +5,12 @@ import LeftNav from './../components/LeftNav';
 import Breadcrumb from './../components/Breadcrumb';
 import Footer from '../components/Footer';
 
-const MainLayout = (props) => {
-  const { title, description, children } = props;
+const MainLayout = ({ title, children }) => {
   return (
     <>
       <HelmetProvider>
         <Helmet>
           <title>{title}</title>
-          <meta name="description" content={description} />
         </Helmet>
       </HelmetProvider>
       <div>

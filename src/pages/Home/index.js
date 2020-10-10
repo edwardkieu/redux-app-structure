@@ -4,10 +4,7 @@ import MainLayout from '../../layouts/mainLayout';
 class Home extends Component {
   render() {
     return (
-      <MainLayout
-        title="This is home page"
-        description="This is description content from react okay."
-      >
+      <MainLayout title="This is home page">
         <div className="card shadow mb-4">
           <div className="card-header py-3">
             <h6 className="m-0 font-weight-bold text-primary">

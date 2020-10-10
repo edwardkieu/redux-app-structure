@@ -17,10 +17,10 @@ LoginForm.defaultProps = {
 };
 
 const schema = yup.object().shape({
-  email: yup
+  username: yup
     .string()
-    .email('Invalid email')
-    .required('Email canot be left blank'),
+    //.email('Invalid email')
+    .required('User name canot be left blank'),
   password: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required(),
 });
 
@@ -36,7 +36,7 @@ function LoginForm(props) {
     shouldFocusError: true,
     shouldUnregister: true,
     defaultValues: {
-      email: 'kieuminhhien@gmail.com',
+      username: 'admin',
       password: 'Abcd1234',
     },
   });
@@ -55,17 +55,16 @@ function LoginForm(props) {
     <form onSubmit={handleSubmit(handleLogin)} className="user">
       <div className="form-group">
         <input
-          type="email"
-          name="email"
+          type="text"
+          name="username"
           disabled={isSubmitting}
           className="form-control form-control-user"
-          aria-describedby="emailHelp"
-          placeholder="Enter Email Address..."
+          placeholder="Account"
           ref={register}
-          style={{ borderColor: errors.email && '#a94442' }}
+          style={{ borderColor: errors.username && '#a94442' }}
         />
-        {errors.email && (
-          <p className="input-feedback">{errors.email.message}</p>
+        {errors.username && (
+          <p className="input-feedback">{errors.username.message}</p>
         )}
       </div>
       <div className="form-group">

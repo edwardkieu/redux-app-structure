@@ -3,19 +3,17 @@ import * as actions from './../../app/app.actions';
 
 export const getCurrentUser = () => async (dispatch) => {
   try {
-    let user = await authApi.getCurrentUser();
+    let user = await authApi.getCurrentUserInfo();
     if (user) {
+      let { item } = user;
       return dispatch(
         actions.getCurrentUser({
           isAuthenticated: true,
           user: {
-            id: user.id,
-            fullName: user.fullName || 'Edward',
-            email: user.email || 'kieuminhhien@gmail.com',
-            avatar:
-              user.imageProfile ||
-              'https://source.unsplash.com/QAB-WJcbgJk/60x60',
-            roles: user.roles, // ['GUEST', 'USER', 'ADMIN']
+            id: item.id,
+            username: item.username || 'admin',
+            photoUrl: item.photoUrl || '',
+            roles: item.roles, // ['GUEST', 'USER', 'ADMIN']
           },
         })
       );

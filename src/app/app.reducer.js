@@ -4,9 +4,8 @@ const initialState = {
   isAuthenticated: false,
   user: {
     id: '',
-    fullName: '',
-    email: '',
-    avatar: '',
+    username: '',
+    photoUrl: '',
     roles: [], // ['GUEST', 'USER', 'ADMIN']
   },
 };

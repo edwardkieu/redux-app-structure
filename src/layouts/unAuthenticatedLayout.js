@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-function UnAuthenticatedLayout(props) {
-  const { children } = props;
-
+function UnAuthenticatedLayout({ title, children }) {
   useEffect(() => {
     document.body.classList.add('bg-gradient-primary');
     return () => {
@@ -14,7 +13,16 @@ function UnAuthenticatedLayout(props) {
   if (localStorage.getItem('jwt')) {
     return <Redirect to="/" />;
   }
-  return <>{children}</>;
+  return (
+    <>
+      <HelmetProvider>
+        <Helmet>
+          <title>{title}</title>
+        </Helmet>
+      </HelmetProvider>
+      {children}
+    </>
+  );
 }
 
 export default UnAuthenticatedLayout;

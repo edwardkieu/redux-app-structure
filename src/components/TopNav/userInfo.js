@@ -1,7 +1,7 @@
 import React from 'react';
 
 const UserInfor = (props) => {
-  const { fullName, avatar } = props.user;
+  const { username, photoUrl } = props.user;
   function handleSignOut() {
     props.onSignOut();
   }
@@ -17,13 +17,13 @@ const UserInfor = (props) => {
         aria-expanded="false"
       >
         <span className="mr-2 d-none d-lg-inline text-gray-600 small">
-          {fullName}
+          {username}
         </span>
         <img
           className="img-profile rounded-circle"
           src={
-            avatar && avatar !== ''
-              ? avatar
+            photoUrl
+              ? photoUrl
               : 'https://source.unsplash.com/QAB-WJcbgJk/60x60'
           }
           alt=""

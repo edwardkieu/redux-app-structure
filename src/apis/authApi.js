@@ -1,12 +1,12 @@
 import axiosClient from './axiosClient';
 
 const authApi = {
-  signIn: (params) => {
-    const url = '/auth/sign-in';
+  login: (params) => {
+    const url = '/account/login';
     return axiosClient.post(url, params);
   },
-  getCurrentUser: () => {
-    const url = '/auth/current';
+  getCurrentUserInfo: () => {
+    const url = '/users/current-user-info';
     return axiosClient.get(url);
   },
 };
