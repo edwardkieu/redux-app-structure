@@ -26,7 +26,7 @@ const schema = yup.object().shape({
 
 function LoginForm(props) {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const { onLogin } = props;
+  const { onLogin, mesg } = props;
   const { register, handleSubmit, errors } = useForm({
     mode: 'onSubmit',
     reValidateMode: 'onChange',
@@ -80,6 +80,9 @@ function LoginForm(props) {
         />
         {errors.password && (
           <p className="input-feedback">{errors.password.message}</p>
+        )}
+        {mesg && (
+          <p className="input-feedback">{mesg}</p>
         )}
       </div>
       <div className="form-group">

@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 import { PATH } from './../../constants/paths';
 
 const Login = (props) => {
-  const { login, loading } = props;
+  const { login, loading, mesg } = props;
   const history = useHistory();
   useEffect(() => {
     if (localStorage.getItem('jwt') !== null) {
@@ -34,7 +34,7 @@ const Login = (props) => {
                       <div className="text-center">
                         <h1 className="h4 text-gray-900 mb-4">Welcome Back!</h1>
                       </div>
-                      <LoginForm onLogin={handleLogin} />
+                      <LoginForm onLogin={handleLogin} mesg={mesg} />
                       <hr />
                       <div className="text-center">
                         <a className="small" href="/auth/login">
@@ -60,6 +60,7 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => ({
   loading: state.login.loading,
+  mesg: state.login.mesg
 });
 
 const mapDispatchToProps = {

@@ -20,7 +20,7 @@ const MainLayout = ({ title, children }) => {
             <div id="content">
               <TopNav />
               <div className="container-fluid">
-                <Breadcrumb />
+                <Breadcrumb title={title} />
                 {children}
               </div>
             </div>

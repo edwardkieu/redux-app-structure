@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const UserInfor = (props) => {
-  const { username, photoUrl } = props.user;
+  const { username, photoUrl, id } = props.user;
   function handleSignOut() {
     props.onSignOut();
   }
@@ -29,15 +30,14 @@ const UserInfor = (props) => {
           alt=""
         />
       </a>
-      {/* Dropdown - User Information */}
       <div
         className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
         aria-labelledby="userDropdown"
       >
-        <button className="dropdown-item">
+        <Link to={`/users/${id}/edit-profile`} className="dropdown-item">
           <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400" />
           Profile
-        </button>
+        </Link>
         <div className="dropdown-divider" />
         <button className="dropdown-item" onClick={() => handleSignOut()}>
           <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" />

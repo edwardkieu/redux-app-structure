@@ -4,11 +4,11 @@ import MainLayout from '../../layouts/mainLayout';
 class Home extends Component {
   render() {
     return (
-      <MainLayout title="This is home page">
+      <MainLayout title="Dashboard">
         <div className="card shadow mb-4">
           <div className="card-header py-3">
             <h6 className="m-0 font-weight-bold text-primary">
-              DataTables Example
+              Form
             </h6>
           </div>
           <div className="card-body">

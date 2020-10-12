@@ -22,7 +22,7 @@ export const login = (payload) => async (dispatch) => {
         })
       );
     } else {
-      return dispatch(actions.loginFailed(message));
+      return dispatch(actions.loginFailed({mesg: message}));
     }
   } catch (err) {
     return dispatch(actions.loginFailed(err));
