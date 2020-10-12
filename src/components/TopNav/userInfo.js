@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const UserInfor = (props) => {
   const { username, photoUrl, id } = props.user;
@@ -34,7 +34,7 @@ const UserInfor = (props) => {
         className="dropdown-menu dropdown-menu-right shadow animated--grow-in"
         aria-labelledby="userDropdown"
       >
-        <Link to={`/users/${id}/edit-profile`} className="dropdown-item">
+        <Link to={`/pages/users/${id}/edit-profile`} className="dropdown-item">
           <i className="fas fa-user fa-sm fa-fw mr-2 text-gray-400" />
           Profile
         </Link>

@@ -1,60 +1,36 @@
 import React, { Component } from 'react';
+import 'semantic-ui-css/semantic.min.css';
+import { Form, Checkbox, Button } from 'semantic-ui-react';
 import MainLayout from './../../../layouts/mainLayout';
 
 class EditProfile extends Component {
-    render() {
-        return (<MainLayout title="Edit profile">
+  render() {
+    return (
+      <MainLayout title="Edit profile">
         <div className="card shadow mb-4">
           <div className="card-header py-3">
-            <h6 className="m-0 font-weight-bold text-primary">
-              Edit profile
-            </h6>
+            <h6 className="m-0 font-weight-bold text-primary">Edit profile</h6>
           </div>
           <div className="card-body">
-            <div className="table-responsive">
-              {/* <table
-                className="table table-bordered"
-                id="dataTable"
-                width="100%"
-                cellSpacing={0}
-              >
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                  <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>Office</th>
-                    <th>Age</th>
-                    <th>Start date</th>
-                    <th>Salary</th>
-                  </tr>
-                </tfoot>
-                <tbody>
-                  <tr>
-                    <td>Tiger Nixon</td>
-                    <td>System Architect</td>
-                    <td>Edinburgh</td>
-                    <td>61</td>
-                    <td>2011/04/25</td>
-                    <td>$320,800</td>
-                  </tr>
-                  
-                </tbody>
-              </table> */}
-            </div>
+            <Form>
+              <Form.Field>
+                <label>First Name</label>
+                <input placeholder="First Name" />
+              </Form.Field>
+              <Form.Field>
+                <label>Last Name</label>
+                <input placeholder="Last Name" />
+              </Form.Field>
+              <Form.Field>
+                <Checkbox label="I agree to the Terms and Conditions" />
+              </Form.Field>
+              <Button type="submit">Submit</Button>
+            </Form>
           </div>
         </div>
-      </MainLayout>);
-    }
+      </MainLayout>
+    );
+  }
 }
 
 export default EditProfile;

@@ -1,5 +1,6 @@
 export const PATH = {
   HOME: '/',
   LOGIN: '/auth/login',
-  EDIT_PROFILE: '/users/:id/edit-profile'
+  EDIT_PROFILE: '/pages/users/:id/edit-profile',
+  USERS: '/pages/users',
 };
