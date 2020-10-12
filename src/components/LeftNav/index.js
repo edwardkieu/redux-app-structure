@@ -25,9 +25,7 @@ export default class LeftNav extends Component {
             <i className="fas fa-fw fa-tachometer-alt" />
             <span>Dashboard</span>
           </Link>
-        </li>
-        <hr className="sidebar-divider" />
-        <div className="sidebar-heading">Systems</div>
+        </li>       
         <li className="nav-item active">
           <Link
             className="nav-link"
@@ -55,11 +53,11 @@ export default class LeftNav extends Component {
           </div>
         </li>
 
-        <hr className="sidebar-divider d-none d-md-block" />
+        {/* <hr className="sidebar-divider d-none d-md-block" />
 
         <div className="text-center d-none d-md-inline">
           <button className="rounded-circle border-0" id="sidebarToggle" />
-        </div>
+        </div> */}
       </ul>
     );
   }

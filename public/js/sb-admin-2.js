@@ -1,9 +1,9 @@
 $(document).ready(function () {
   // hide sidebar
-  // $('.sidebar').toggleClass('toggled');
-  // if ($('.sidebar').hasClass('toggled')) {
-  //   $('.sidebar .collapse').collapse('hide');
-  // }
+  $('.sidebar').toggleClass('toggled');
+  if ($('.sidebar').hasClass('toggled')) {
+    $('.sidebar .collapse').collapse('hide');
+  }
 
   $('#sidebarToggle, #sidebarToggleTop').on('click', function (e) {
     $('body').toggleClass('sidebar-toggled');

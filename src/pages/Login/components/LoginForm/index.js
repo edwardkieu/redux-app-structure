@@ -34,11 +34,11 @@ function LoginForm(props) {
     context: undefined,
     criteriaMode: 'firstError',
     shouldFocusError: true,
-    shouldUnregister: true,
-    defaultValues: {
-      username: 'admin',
-      password: 'Abcd1234',
-    },
+    shouldUnregister: true
+    // defaultValues: {
+    //   username: 'admin',
+    //   password: 'Abcd1234',
+    // },
   });
 
   //const { isDirty, isSubmitting, touched, submitCount } = formState;
