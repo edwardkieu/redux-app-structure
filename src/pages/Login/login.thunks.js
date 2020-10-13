@@ -9,7 +9,7 @@ export const login = (payload) => async (dispatch) => {
     if (success || token) {
       localStorage.setItem('jwt', res.token);
       let user = await authApi.getCurrentUserInfo();
-      let item = { user };
+      let { item } = user;
       return dispatch(
         actions.loginSuccess({
           ...res,

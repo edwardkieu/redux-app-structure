@@ -16,7 +16,9 @@ const appReducer = (state = initialState, action) => {
       localStorage.removeItem('jwt');
       return { ...state, isAuthenticated: false };
     }
-    case LOGIN_SUCCESS:
+    case LOGIN_SUCCESS: {
+      return { ...state, isAuthenticated: true, user: action.payload.user };
+    }
     case types.GET_CURRENT_USER: {
       return { ...state, isAuthenticated: true, user: action.payload.user };
     }

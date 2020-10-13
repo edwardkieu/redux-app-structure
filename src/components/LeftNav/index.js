@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 const MenuLink = ({ menu }) => {
   let { label, to, activeOnlyWhenExact, faIcon, slug } = menu;
@@ -70,7 +71,7 @@ const MenuLink = ({ menu }) => {
   );
 };
 
-export default class LeftNav extends Component {
+class LeftNav extends Component {
   state = {
     navMenus: [
       {
@@ -110,6 +111,7 @@ export default class LeftNav extends Component {
   };
 
   render() {
+    const { username } = this.props.user;
     return (
       <ul
         className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
@@ -123,43 +125,19 @@ export default class LeftNav extends Component {
             <i className="fas fa-laugh-wink" />
           </div>
           <div className="sidebar-brand-text mx-3">
-            Edward <sup>Kieu</sup>
+            {username || 'amin'} <sup>Hi!</sup>
           </div>
         </Link>
         <hr className="sidebar-divider my-0" />
-        {this.showNavMenus(this.state.navMenus)}
-        {/* <li className="nav-item">
-          <Link className="nav-link" to="/">
-            <i className="fas fa-fw fa-tachometer-alt" />
-            <span>Dashboard</span>
-          </Link>
-        </li>
-        <li className="nav-item active">
-          <Link
-            className="nav-link"
-            to="/"
-            data-toggle="collapse"
-            data-target="#collapsePages1"
-            aria-expanded="true"
-            aria-controls="collapsePages1"
-          >
-            <i className="fas fa-fw fa-folder" />
-            <span>Pages</span>
-          </Link>
-          <div
-            id="collapsePages1"
-            className="collapse show"
-            aria-labelledby="headingPages"
-          >
-            <div className="bg-white py-2 collapse-inner rounded">
-              <h6 className="collapse-header">Accounts Management:</h6>
-              <a className="collapse-item" href="/">
-                Users
-              </a>
-            </div>
-          </div>
-        </li> */}
+        {this.showNavMenus(this.state.navMenus)}        
       </ul>
     );
   }
-}
+};
+
+const mapStateToProps = (state) => ({
+  user: state.app.user
+});
+
+
+export default connect(mapStateToProps, null)(LeftNav)
