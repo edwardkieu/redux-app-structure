@@ -2163,11 +2163,11 @@ textarea.form-control.is-valid {
 }
 
 .invalid-feedback {
-  display: none;
+  display: block !important;
   width: 100%;
   margin-top: 0.25rem;
-  font-size: 80%;
-  color: #e74a3b;
+  font-size: 90%;
+  color: #e74a3b !important;
 }
 
 .invalid-tooltip {

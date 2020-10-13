@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './app';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'semantic-ui-css/semantic.min.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as serviceWorker from './serviceWorker';
