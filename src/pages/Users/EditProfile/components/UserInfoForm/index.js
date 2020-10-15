@@ -5,34 +5,30 @@ import { connect } from 'react-redux';
 import { GENDER_OPTIONS } from './../../../../../constants/global';
 import InputField from './../../../../../components/CustomFields/InputField';
 import SelectField from './../../../../../components/CustomFields/SelectField';
-import { FastField, Form, Formik } from 'formik';
+import { FastField, Field, Form, Formik } from 'formik';
 import * as Yup from 'yup';
 
-function mapStateToProps(state) {
-  return {};
-}
+const validationSchema = Yup.object().shape({
+  gender: Yup.string().required('This field is required.'),
+  introduction: Yup.string().required('This field is required.').nullable(),
+});
 
 class UserInfoForm extends Component {
   render() {
     const { initialValues } = this.props;
-    const validationSchema = Yup.object().shape({
-      gender: Yup.string().required('This field is required.'),
-      information: Yup.string().required('This field is required.').nullable(),
-    });
     return (
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={this.props.onSubmit}
       >
-        {(formikProps) => {
+        {() => {
           // do something here ...
-          //const { isSubmitting } = formikProps;
+          //const { isSubmitting, values, errors, touched } = formikProps;
           //console.log({ values, errors, touched });
-
           return (
             <Form>
-              <FastField
+              <Field
                 name="gender"
                 component={SelectField}
                 label="Gender"
@@ -40,17 +36,17 @@ class UserInfoForm extends Component {
                 options={GENDER_OPTIONS}
               />
 
-              <FastField
-                name="information"
+              <Field
+                name="introduction"
                 type="textarea"
                 component={InputField}
-                label="Information"
-                placeholder="Eg: Your information ..."
+                label="Introduction"
+                placeholder="Eg: Your introduction ..."
                 rows={10}
               />
               <FormGroup>
                 <Message
-                  hidden
+                  hidden={true}
                   error
                   header="Could you check something!"
                   list={[
@@ -72,11 +68,12 @@ class UserInfoForm extends Component {
           );
         }}
       </Formik>
-      //   <form>
-
-      //   </form>
     );
   }
+}
+
+function mapStateToProps(state) {
+  return {};
 }
 
 export default connect(mapStateToProps)(UserInfoForm);

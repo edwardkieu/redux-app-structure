@@ -4,10 +4,17 @@ import { connect } from 'react-redux';
 import MainLayout from '../../../layouts/mainLayout';
 import UserInfoForm from './components/UserInfoForm';
 import UserPhotoForm from './components/UserPhotoForm';
+import { getUserProfile } from './../EditProfile/dux/thunks';
 
-function mapStateToProps(state) {
-  return {};
-}
+const mapStateToProps = (state) => {
+  return {
+    user: state.editProfile.user,
+  };
+};
+
+const mapDispatchToProps = {
+  getUserProfile,
+};
 
 class EditProfile extends Component {
   state = {
@@ -20,17 +27,21 @@ class EditProfile extends Component {
       this.setState({ isLoading: false });
     }, 1000);
   };
+  componentDidMount() {
+    this.props.getUserProfile();
+  }
   render() {
+    let { user } = this.props;
     const { isLoading } = this.state;
     const initialValues = {
-      gender: 'male',
-      information: '',
+      gender: user.gender,
+      introduction: user.introduction,
     };
     const panes = [
       {
         menuItem: 'Information',
         render: () => (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={true}>
             <Dimmer active={isLoading} inverted>
               <Loader inline="centered">Loading...</Loader>
             </Dimmer>
@@ -62,4 +73,4 @@ class EditProfile extends Component {
   }
 }
 
-export default connect(mapStateToProps)(EditProfile);
+export default connect(mapStateToProps, mapDispatchToProps)(EditProfile);
