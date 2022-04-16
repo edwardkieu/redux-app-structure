@@ -1,3 +1,3 @@
-React redux app base structure
+# React redux app base structure
 
 
